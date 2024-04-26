@@ -44,7 +44,9 @@ class blenderLauncherWindow(QMainWindow,Panel.BlenderLauncher.Ui_BlenderLauncher
         self.pushButton_Launch.clicked.connect(self.Action_pushButton_Launch_clicked)
         self.pushButton_BrowseWorkSpace.clicked.connect(self.Action_pushButton_BrowseWorkSpace_clicked)
         self.pushButton_Open.clicked.connect(self.Action_pushButton_Open_clicked)
+        self.pushButton_Render.clicked.connect(self.Action_pushButton_Render_clicked)
         self.comboBox_WorkSpace.currentIndexChanged.connect(self.Action_comboBox_WorkSpace_currentIndexChanged)
+
 
     def Action_pushButton_Launch_clicked(self):
         version_string = 'Blender ' + self.comboBox_Version.currentText()
@@ -66,6 +68,14 @@ class blenderLauncherWindow(QMainWindow,Panel.BlenderLauncher.Ui_BlenderLauncher
         open_path = self.listView_WorkSpaceFiles.selectionModel().selectedIndexes()[0].data()
         open_path = self.comboBox_WorkSpace.currentText() + "\\" + open_path
         cmdline = 'cd ' + Path.BlenderFoundation() + '\\' + version_string + ' && blender ' + open_path
+        os.system(cmdline)
+        print('[CMD]: ' + cmdline)
+
+    def Action_pushButton_Render_clicked(self):
+        version_string = 'Blender ' + self.comboBox_Version.currentText()
+        open_path = self.listView_WorkSpaceFiles.selectionModel().selectedIndexes()[0].data()
+        open_path = self.comboBox_WorkSpace.currentText() + "\\" + open_path
+        cmdline = 'cd ' + Path.BlenderFoundation() + '\\' + version_string + ' && blender -b ' + open_path + ' --render-output ' + self.comboBox_WorkSpace.currentText() + '/Output/frame_ --render-anim'
         os.system(cmdline)
         print('[CMD]: ' + cmdline)
 
