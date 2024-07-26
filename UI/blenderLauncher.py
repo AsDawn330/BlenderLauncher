@@ -1,15 +1,10 @@
-import json
-import os
-
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
 import sys
+from PySide6.QtWidgets import QApplication,QLabel
 
-import Panel.BlenderLauncher
 import Operator.Path as Path
 import Operator.File as File
 
-class blenderLauncherWindow(QMainWindow,Panel.BlenderLauncher.Ui_BlenderLauncherWindow):
+""" class blenderLauncherWindow(QMainWindow,Panel.BlenderLauncher.Ui_BlenderLauncherWindow):
     def __init__(self):
         super(blenderLauncherWindow,self).__init__()
         self.setupUi(self)
@@ -88,11 +83,11 @@ class blenderLauncherWindow(QMainWindow,Panel.BlenderLauncher.Ui_BlenderLauncher
         self.FilesInWorkSpaceModel.clear()
         for file in files:
             self.FilesInWorkSpaceModel.appendRow(QStandardItem(file))
-
+ """
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = blenderLauncherWindow()
-    window.show()
-    sys.exit(app.exec())
+    label = QLabel('Hello World')
+    label.show()
+    app.exec_()
