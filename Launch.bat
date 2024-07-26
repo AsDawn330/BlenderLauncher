@@ -28,7 +28,7 @@ goto :activate_venv
 cd %VENV_DIR%/Scripts
 call activate.bat
 pip install -r %~dp0%requirements.txt
-set PYTHON="%VENV_DIR%\Scripts\Pythonw.exe"
+set PYTHON="%VENV_DIR%\Scripts\Python.exe"
 %PYTHON% %~dp0%/UI/blenderLauncher.py
 goto:end
 

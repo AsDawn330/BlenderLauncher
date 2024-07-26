@@ -33,6 +33,11 @@ def path_config():
 def BlenderFoundation():
     return read_path_config(['Local','Blender Foundation'])
 
+def BlenderFoundation_Dirve():
+    path = BlenderFoundation()
+    drive = path.split(':')[0] + ":"
+    return drive
+
 def WorkSpaces():
     return read_path_config(['WorkSpace'])
 
